@@ -1,0 +1,26 @@
+Matplotlib Architecture---
+1. Scripting Layer (pyplot)
+2. Artist Layer (Artist)
+3. Backend Layer (FigureCanvas, Renderer, Evnet)
+
+Backend Layer
+	Has three built-in abstart interface classes:
+		1. FigureCanvas: matplotlib.backend_bases.FigureCanvas
+			Encompasses the area onto which the figure is drawn
+		2. Renderer: matplotlib.backend_bases.Renderer
+			Knows how to draw on the FigureCanvas
+		3. Event: matplotlib.backend_bases.Event
+			Handles user inputs such as keyboard strokes and mouse clicks
+
+Artist Layer
+	1. 	Comprised of one main objec- Artist
+		Knows how to use the Renderer to draw on the canvas
+	
+	2. Title, lines, tick labels, and images, all correspond to individual Artist instances.
+
+	3. Two types of Artist objects:
+		1. Primitive: Line2D, Rectangle, Circle and Text.
+		2. Composite: Axis, Tick, Axex and Figure.
+
+	4. Each composite artist may contain other composite artists as well as primitive artists.
+	Eg. Figure-Line2D,Axix
